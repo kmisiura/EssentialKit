@@ -210,4 +210,28 @@ public extension String {
         guard let last = components.last else { return self }
         return String(last)
     }
+    
+    func stripOutHtml() -> String? {
+        do {
+            guard let data = self.data(using: .unicode) else {
+                return nil
+            }
+            let attributed = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
+            return attributed.string
+        } catch {
+            return nil
+        }
+    }
+    
+    func capitalized() -> String {
+        return prefix(1).uppercased() + self.dropFirst()
+    }
+    
+    mutating func capitalize() {
+        self = self.capitalized()
+    }
+    
+    var intValue: Int? {
+        return Int(self)
+    }
 }
