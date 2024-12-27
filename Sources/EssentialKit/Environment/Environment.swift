@@ -162,6 +162,7 @@ public extension Environment {
     }
 }
 
+/*
 // MARK: - API Environemnt
 public extension Environment {
     
@@ -186,6 +187,7 @@ public extension Environment {
         UserDefaults.standard.setValue(env.rawValue, forKey: "EssentialKit.APIEnvironment")
     }
 }
+ */
 
 // MARK: - Debug Overrides
 public extension Environment {
