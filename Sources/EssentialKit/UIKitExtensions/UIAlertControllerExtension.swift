@@ -32,9 +32,9 @@ public extension UIAlertController {
         let message: String
         let actions: [UIAlertAction]
         
-        if case CoreNetworkError.backend(code: _, error: let backendError) = theError, let backendError = backendError {
+        if case CoreNetworkError.backend(code: _, error: let backendError, request: _) = theError, let backendError = backendError {
             error = backendError
-        } else if case CoreNetworkError.network(error: let networkError) = theError {
+        } else if case CoreNetworkError.network(error: let networkError, request: _) = theError {
             error = networkError
         } else {
             error = theError
