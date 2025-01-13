@@ -69,7 +69,7 @@ import OSLogger
      */
     public convenience init?(_ rgba: String) {
         guard rgba.hasPrefix("#") else {
-            Log.error("Invalid RGB string, missing '#' as prefix in %{public}s. \(rgba)")
+            Log.error("Invalid RGB string, missing '#' as prefix in '\(rgba)'.")
             return nil
         }
         
@@ -77,7 +77,7 @@ import OSLogger
         var hexValue: UInt32 = 0
         
         guard let hexValueInt = Scanner(string: hexString).scanInt32(representation: .hexadecimal) else {
-            Log.error("Scan %{public}s for hex value error. \(rgba)")
+            Log.error("Scan '\(rgba)' for hex value error.")
             return nil
         }
         hexValue = UInt32(hexValueInt)
@@ -92,7 +92,7 @@ import OSLogger
             case 8:
                 self.init(hex8: hexValue)
             default:
-                Log.error("Invalid RGB string from %{public}s, number of characters after '#' should be either 3, 4, 6 or 8. \(rgba)")
+                Log.error("Invalid RGB string from '\(rgba)', number of characters after '#' should be either 3, 4, 6 or 8.")
                 return nil
         }
     }
