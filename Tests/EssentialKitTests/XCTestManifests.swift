@@ -12,6 +12,7 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(CryptoTests.allTests),
         testCase(ErrorTests.allTests),
         testCase(KeychainTests.allTests),
+        testCase(TimeZoneExtensionTests.allTests),
     ]
 }
 #endif

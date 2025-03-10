@@ -5,6 +5,8 @@
 //  Created by Karolis Misiūra on 10/03/2025.
 //
 
+import Foundation
+
 extension TimeZone {
     
     /// Taken from stack overflow post: https://stackoverflow.com/a/50384957
