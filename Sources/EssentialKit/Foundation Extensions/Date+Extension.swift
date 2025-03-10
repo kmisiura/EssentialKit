@@ -14,9 +14,11 @@ public extension Date {
     func string(dateStyle: DateFormatter.Style = .medium,
                 timeStyle: DateFormatter.Style = .medium,
                 formattingContext: Formatter.Context = .standalone,
-                locale: Locale = .current) -> String {
+                locale: Locale = .current,
+                timeZone: TimeZone? = nil) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = locale
+        dateFormatter.timeZone = timeZone
         dateFormatter.dateStyle = dateStyle
         dateFormatter.timeStyle = timeStyle
         dateFormatter.formattingContext = formattingContext
@@ -40,16 +42,5 @@ public extension Date {
     func floorToMinutes() -> Date? {
         let components = Calendar.current.dateComponents([.calendar, .era, .year, .month, .day, .hour, .minute, .timeZone], from: self)
         return components.date
-    }
-    
-    // MARK: - Calculating
-    
-    static func getDuration(from: Date, to: Date) -> TimeInterval {
-        return  to.timeIntervalSinceReferenceDate - from.timeIntervalSinceReferenceDate
-    }
-    
-    static func getDurationInMinutes(from: Date, to: Date) -> Int {
-        let seconds = Int(to.timeIntervalSince1970 - from.timeIntervalSince1970)
-        return seconds / 60
     }
 }
