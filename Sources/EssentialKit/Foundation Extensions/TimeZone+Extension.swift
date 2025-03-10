@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension TimeZone {
+public extension TimeZone {
     
     /// Taken from stack overflow post: https://stackoverflow.com/a/50384957
     init?(iso8601: String) {
