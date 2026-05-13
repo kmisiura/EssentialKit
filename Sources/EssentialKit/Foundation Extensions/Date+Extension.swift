@@ -24,15 +24,18 @@ public extension Date {
         dateFormatter.formattingContext = formattingContext
         return dateFormatter.string(from: self)
     }
-    
+
+    /// Date only in short format (02/01/2026).
     func dateOnlyString() -> String {
         return string(dateStyle: .short, timeStyle: .none)
     }
     
+    /// Date and time in short format (02/01/2026, 17:44).
     func timeString() -> String {
         return string(dateStyle: .short, timeStyle: .short)
     }
     
+    /// Date in short and time in medium format (02/01/2026, 17:44:01).
     func timeAndSecondsString() -> String {
         return string(dateStyle: .short, timeStyle: .medium)
     }
