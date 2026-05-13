@@ -16,7 +16,7 @@ public extension Publisher {
         
         return self.catch { error -> AnyPublisher<T, E> in
             
-            let exponentialDelay: TimeInterval = TimeInterval(UInt(delay) ^ currentAttempt)
+            let exponentialDelay: TimeInterval = pow(delay, TimeInterval(currentAttempt))
             
             Log.debug(String(describing: self) + " failed, will retrying in \(exponentialDelay) seconds.")
             
